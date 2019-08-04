@@ -1,0 +1,57 @@
+[App.js]
+import React from 'react';
+import UserList from './UserList';
+
+
+
+function App() {
+  return (
+    <UserList />
+  );
+}
+
+export default App;
+
+[UserList.js]
+import React from 'react';
+
+function User({user}) {
+    return (
+        <div>
+            <b>{user.username}</b>
+            <span>({user.email})</span>
+        </div>
+    );
+}
+
+function UserList() {
+    const users = [
+        {
+            id: 1,
+            username: 'velopert',
+            email: 'superi@gima.com'
+        },
+        {
+            id: 2,
+            username: 'tester',
+            email: 'hho@gima.com'
+        },
+        {
+            id: 3,
+            username: 'liz',
+            email: 'si@gima.com'
+        }                
+    ];
+
+    return (
+        <div>
+            {
+                users.map(
+                   user => (<User user={user} key={user.id} />)
+                ) 
+            }                      
+        </div>
+    );
+}
+
+export default UserList;
